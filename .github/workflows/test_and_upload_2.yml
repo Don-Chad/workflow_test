@@ -20,24 +20,24 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run Tests
         run: pytest main.py
-        
-deploy:
-  needs: test
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.5.0
-      with:
-        ssh-private-key: ${{ secrets.SSH_DIGITAL_OCEAN }}
-    - name: Deploy
-      run: |
-        ssh -o StrictHostKeyChecking=no root@104.248.249.218 <<EOF
-        systemctl stop myflaskapp
-        cd /home/farm/workflow_test
-        rm -f main.py
-        git fetch --all
-        git reset --hard origin/main
-        systemctl start myflaskapp
-        EOF
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_DIGITAL_OCEAN }}
+      - name: Deploy
+        run: |
+          ssh -o StrictHostKeyChecking=no root@104.248.249.218 <<EOF
+          systemctl stop myflaskapp
+          cd /home/farm/workflow_test
+          rm -f main.py
+          git fetch --all
+          git reset --hard origin/main
+          systemctl start myflaskapp
+          EOF
