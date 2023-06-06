@@ -19,7 +19,7 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run Tests
-        run: run: pytest main.py
+        run: pytest main.py
 
   deploy:
     needs: test
@@ -34,8 +34,10 @@ jobs:
       - name: Deploy
         run: |
           ssh -o StrictHostKeyChecking=no root@104.248.249.218 <<EOF
+          [ ! -d /home/farm/workflow_test/.git ] && git clone git@github.com:don-chad/workflow_test.git /home/farm/workflow_test
           cd /home/farm/workflow_test
           rm -f main.py
-          git pull
+          git fetch --all
+          git reset --hard origin/main
           systemctl restart farm
           EOF
