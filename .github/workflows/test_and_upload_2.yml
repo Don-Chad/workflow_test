@@ -35,7 +35,7 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no root@104.248.249.218 <<EOF
           systemctl stop myflaskapp
-          cd /home/farm/workflow_test
+          cd ~/home/farm/workflow_test
           rm -f main.py
           git fetch --all
           git reset --hard origin/main
