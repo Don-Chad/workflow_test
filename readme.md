@@ -6,7 +6,7 @@ For this project, we've brought together three components: GitHub Actions, SSH, 
 
 SSH - which stands for Secure Shell - serves as our secure entry point to the Digital Ocean server. It provides a safe and remote login that allows us to execute commands on the server and ensure the smooth deployment of our updates.
 
-Lastly, we have Digital Ocean, a highly scalable cloud infrastructure provider. It's the venue where our Flask application is hosted and managed. Through the interaction of these three components, we can efficiently update and maintain our application in the cloud, ensuring it stays up-to-date and ready for use.
+Lastly, we have Digital Ocean, a highly scalable cloud infrastructure provider. It's the venue where our Flask application is hosted and managed. Through the interaction of these three components, we can efficiently update and maintain our application in the cloud, with code testing before going live. 
 
 **My challenges:**
 
