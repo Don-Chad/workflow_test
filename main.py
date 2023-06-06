@@ -1,3 +1,5 @@
+
+#this is a v3
 # Import what we need from flask
 from flask import Flask
 
@@ -7,10 +9,10 @@ app = Flask(__name__)
 # Assign a function to be called when the path `/` is requested
 @app.route('/')
 def index():
-    return 'Hello, world! = this is the updated version.'
+    return 'Hello, world! = this is the updated version, once again. The code is tested and the flask server is updated.'
 
 @app.route('/cow')
 def cow():
-    return 'MOoooOo - thhis is the fully updated moo!'
+    return 'MOoooOo - thhis also is the fully updated moo!'
 
-#this is a v2
+
