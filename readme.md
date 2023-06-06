@@ -10,7 +10,7 @@ Lastly, we have Digital Ocean, a highly scalable cloud infrastructure provider. 
 
 **My challenges:**
 
-- Getting familiar with ssh and Github access codes also took some time. I am now connecting to the digital ocean server with SSH. (The amount of people trying to access 'my’ server is shocking indeed. Since I would like to continue to use this server, I have set up a firewall since..)
+- Getting familiar with SSH and Github access codes also took some time. I am now connecting to the digital ocean server with SSH. (The amount of people trying to access 'my’ server is shocking indeed. Since I would like to continue to use this server, I have set up a firewall since..)
 - Pytesting - Ideally a Pytest would test the routing/output of the server once it runs, not just the code. I tried to set this up first within Github actions, but found out you cannot really approach a flask server running there. Therefore I came to this current mechanism, which is just testing if the code runs, and if the right requirements are there.
 - It was tricky to get the right files and commands on the digital ocean server. This took 11 attempts, before we had the desired notice, indicating the new server [main.py](http://main.py) was updated and running: " Hello, world! = this is the updated version, once again. The code is tested and the flask server is updated." I had to make sure the git pull did not run in problems with file mergers etc, so I decided to deactivate the server first, delete main.py and to do a ‘git reset --hard origin/main’ to make sure the repo get’s pulled without interference.
 - Here’s an indication of the YML script I used for the Github Actions (this setup does not need separate .sh files):
